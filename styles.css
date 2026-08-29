@@ -1,0 +1,1000 @@
+/* ==========================================================================
+   Variables y Configuración Global
+   ========================================================================== */
+:root {
+    /* Paleta de Colores (Borgoña, Vino Oscuro, Dorado, Crema) */
+    --bg-color: #fcfbf9; /* Blanco cálido */
+    --bg-secondary: #f4f0e6; /* Beige / Crema */
+    --text-main: #333333;
+    --text-soft: #666666;
+    
+    --brand-nude: #f4e8e1;
+    --brand-nude-light: #faf5f0;
+    --brand-cream: #FDFBF5;
+    
+    --accent-gold: #D4AF37; /* Dorado cálido */
+    --brand-burgundy: #7a1b29; /* Borgoña */
+    --brand-burgundy-dark: #5a111c; /* Vino oscuro */
+    
+    --cta-bg: #d4af37;
+    --cta-hover: #b5952f;
+    --cta-text: #ffffff;
+    
+    --whatsapp-green: #25D366;
+    --whatsapp-hover: #128C7E;
+    
+    --alert-red: #7a1b29; /* Using burgundy for alerts/urgency */
+    --success-green: #2ecc71;
+    --danger-red: #da3227;
+
+    --border-radius: 8px;
+    --border-radius-lg: 16px;
+    
+    --shadow-sm: 0 2px 8px rgba(122, 27, 41, 0.08);
+    --shadow-md: 0 4px 16px rgba(122, 27, 41, 0.12);
+    --shadow-float: 0 8px 24px rgba(122, 27, 41, 0.2);
+
+    --max-width: 480px; /* Mobile First Constraints */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Contenedor Principal (Mobile First) */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    padding: 0 20px;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Utilidades
+   ========================================================================== */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.mt-4 { margin-top: 32px; }
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.mb-4 { margin-bottom: 32px; }
+.pb-4 { padding-bottom: 32px; }
+.text-gold { color: var(--accent-gold); }
+.text-soft { color: var(--text-soft); }
+.hidden { display: none !important; }
+
+/* ==========================================================================
+   Botones Principales
+   ========================================================================== */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.btn-primary {
+    background: #111111;
+    color: #ffffff;
+    box-shadow: 0 6px 24px rgba(120, 60, 180, 0.35), 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.btn-whatsapp {
+    background-color: var(--whatsapp-green);
+    color: white;
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+    animation: none;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 6px 24px rgba(120, 60, 180, 0.35), 0 2px 8px rgba(0,0,0,0.3); }
+    50% { transform: scale(1.02); box-shadow: 0 8px 32px rgba(120, 60, 180, 0.55), 0 4px 12px rgba(0,0,0,0.35); }
+    100% { transform: scale(1); box-shadow: 0 6px 24px rgba(120, 60, 180, 0.35), 0 2px 8px rgba(0,0,0,0.3); }
+}
+
+/* ==========================================================================
+   Barra Superior (Top Bar)
+   ========================================================================== */
+.top-bar {
+    background-color: var(--brand-burgundy);
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.urgency-banner {
+    background-color: var(--brand-burgundy);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.urgency-banner-new {
+    background-color: var(--danger-red);
+    color: white;
+    text-align: center;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 13px;
+    border-radius: 6px;
+    margin: 24px 0;
+}
+
+/* ==========================================================================
+   Sección Hero
+   ========================================================================== */
+.hero {
+    padding: 24px 0 32px 0;
+}
+
+.product-image-container {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 32px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--brand-cream);
+}
+
+.hero-image-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.reviews-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--bg-secondary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.stars {
+    color: #FFB800;
+    letter-spacing: 2px;
+}
+
+.hero-title {
+    font-size: 26px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.hero-subtitle {
+    font-size: 15px;
+    color: var(--text-soft);
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+/* Precios */
+.price-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.current-price {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--alert-red);
+    line-height: 1;
+}
+
+.old-price {
+    font-size: 18px;
+    color: #999;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+.savings-badge {
+    display: inline-block;
+    background-color: #d93025; /* Red color matching reference */
+    color: white;
+    padding: 6px 16px;
+    border-radius: 4px; /* Slightly sharper corners */
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   Secciones Generales
+   ========================================================================== */
+.section-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--text-main);
+}
+
+/* Beneficios Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.benefit-item {
+    background-color: var(--brand-cream);
+    padding: 16px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(122, 27, 41, 0.05);
+}
+
+.benefit-icon {
+    font-size: 28px;
+}
+
+.benefit-text {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* Comparación Antes/Después */
+.comparison-section {
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin: 0 -20px 40px -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--bg-secondary);
+}
+
+.comparison-box {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.comparison-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #ddd;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.comparison-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comparison-content {
+    display: flex;
+}
+
+.comparison-col {
+    flex: 1;
+    padding: 16px;
+}
+
+.comparison-col.before {
+    background-color: #fafafa;
+    border-right: 1px solid #eee;
+}
+
+.comparison-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.before .comparison-title { color: var(--text-soft); }
+.after .comparison-title { color: var(--success-green); }
+
+.comparison-list {
+    list-style: none;
+}
+
+.comparison-list li {
+    font-size: 13px;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.before .comparison-list li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: #999;
+}
+
+.after .comparison-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success-green);
+    font-weight: bold;
+}
+
+/* Pasos */
+.steps-section {
+    padding: 0 0 40px 0;
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.step-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--brand-cream);
+    padding: 16px;
+    border-radius: var(--border-radius);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-gold);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.step-text {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* Qué incluye */
+.includes-section {
+    background-color: var(--brand-burgundy);
+    color: white;
+    padding: 40px 20px;
+    margin: 0 -20px 40px -20px;
+}
+
+.includes-section .section-title {
+    color: white;
+    margin-bottom: 24px;
+}
+
+.includes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+.includes-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    padding: 4px 0;
+    border-bottom: none;
+}
+
+.includes-item svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* Testimonios */
+.testimonials-section {
+    padding-bottom: 40px;
+}
+
+.testimonials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.testimonial-card {
+    background-color: var(--brand-cream);
+    padding: 24px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #ddd;
+    overflow: hidden;
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.verified-buyer {
+    font-size: 12px;
+    color: var(--success-green);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.testimonial-stars {
+    color: #FFB800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.testimonial-text {
+    font-size: 14px;
+    color: var(--text-soft);
+    font-style: italic;
+    line-height: 1.6;
+}
+.testimonial-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Urgencia */
+.urgency-banner {
+    background-color: #FFF3CD;
+    color: #856404;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: var(--border-radius);
+    margin-bottom: 24px;
+    border: 1px solid #FFEEBA;
+}
+
+/* Trust Badges */
+.trust-badges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.trust-badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-soft);
+}
+
+.delivery-info {
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.delivery-info p {
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--brand-burgundy);
+}
+
+/* FAQ */
+.faq-section {
+    padding-bottom: 60px;
+}
+
+details {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+summary {
+    padding: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 40px;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "+";
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--accent-gold);
+}
+
+details[open] summary::after {
+    content: "-";
+}
+
+details p {
+    padding: 0 16px 16px 16px;
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Modal Checkout & Tarjetas de Oferta
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    width: 100%;
+    max-width: var(--max-width);
+    border-radius: 20px 20px 0 0;
+    padding: 24px 20px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #f0f0f0;
+    border: none;
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+}
+
+.form-section {
+    padding: 24px 20px;
+}
+
+.offers-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.offer-card {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 16px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+.offer-card.active {
+    border: 2px solid var(--accent-gold);
+    background-color: var(--brand-cream);
+}
+
+.offer-badge {
+    position: absolute;
+    top: -12px;
+    right: 16px;
+    background-color: #E74C3C;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+.offer-radio {
+    display: none;
+}
+
+.offer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.offer-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.offer-card.active .radio-custom {
+    border-color: var(--accent-gold);
+}
+
+.offer-card.active .radio-custom::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.offer-price-block {
+    text-align: right;
+}
+
+.offer-current-price {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--text-main);
+}
+
+.offer-old-price {
+    font-size: 13px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.offer-benefits {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed #eaeaea;
+    list-style: none;
+}
+
+.offer-benefits li {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.offer-benefits li::before {
+    content: "✓";
+    color: var(--success-green);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   Formulario Checkout
+   ========================================================================== */
+.checkout-box {
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 24px 20px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-family: inherit;
+    background-color: #fafafa;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--brand-burgundy);
+    background-color: white;
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.order-summary {
+    background-color: var(--brand-cream);
+    padding: 16px;
+    border-radius: var(--border-radius);
+    margin: 24px 0;
+    border: 1px solid rgba(122, 27, 41, 0.1);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--text-soft);
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(122, 27, 41, 0.1);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--text-main);
+}
+
+.security-badges {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.security-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--text-soft);
+    font-weight: 500;
+}
+
+.security-badge svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--text-soft);
+}
+
+/* ==========================================================================
+   Footer y Elementos Flotantes
+   ========================================================================== */
+.footer {
+    text-align: center;
+    padding: 24px 20px 24px 20px; /* Reducido drásticamente para que no sea ancha */
+    background-color: var(--brand-burgundy);
+    color: white;
+    margin: 0 -20px;
+}
+
+.footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+}
+
+/* Botón de Ordenar Flotante */
+.order-float-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: auto;
+    background: #111111;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(120, 60, 180, 0.35), 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 90;
+}
+
+/* Botón de WhatsApp Flotante */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background-color: var(--whatsapp-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 90;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}
+
+.whatsapp-tooltip {
+    position: absolute;
+    right: 66px;
+    background-color: white;
+    color: var(--text-main);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateX(10px);
+    animation: slideIn 0.3s forwards 1s;
+}
+
+.whatsapp-tooltip::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent white;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
