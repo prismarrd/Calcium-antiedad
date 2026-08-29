@@ -5,13 +5,13 @@ const CONFIG = {
         marca: "Dr. Melaxin",
         formato: "Stick Bálsamo Multi-uso"
     },
-    
+
     // Configuración de Contacto y Tracking
     contacto: {
         whatsappTelefono: "18097651290", // Mismo número del código original
         pixelId: "2293470854807086" // Mismo pixel del código original
     },
-    
+
     // Ofertas y Precios (Como solicitó en el plan)
     ofertas: {
         opcion1: {
@@ -131,7 +131,7 @@ const CONFIG = {
         {
             nombre: "Teresa L.",
             avatar: "perfil-testimonios/perfil1.jpg",
-            texto: "Me gustó mucho su resultado, voy a pedir 2 más.",
+            texto: "Me gusto mucho su resultado voy a pedir 2 más",
             imagenResultado: "testimonios/testi1.avif"
         },
         {
