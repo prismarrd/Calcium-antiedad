@@ -54,7 +54,7 @@ const CONFIG = {
     imagenes: {
         hero: "producto/Producto1.png",
         antesDespues: "producto/producto2.png",
-        transformacion: "producto/Producto3.png",
+        transformacion: "producto/producto3.png",
         checkout: "producto/Producto1.png"
     },
 
