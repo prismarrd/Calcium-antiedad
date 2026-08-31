@@ -9,7 +9,7 @@ const CONFIG = {
     // Configuración de Contacto y Tracking
     contacto: {
         whatsappTelefono: "18097651290", // Mismo número del código original
-        pixelId: "1055985633743851"
+        pixelId: "2293470854807086" // Mismo pixel del código original
     },
 
     // Ofertas y Precios (Como solicitó en el plan)

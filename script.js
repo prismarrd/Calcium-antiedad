@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    // Inicializar Pixel
+    initPixel();
 
     // Ahora todo sucede en la misma página, poblamos todo.
     populateLandingPage();
@@ -16,6 +18,39 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        Funciones Globales
        ========================================================================== */
+    function initPixel() {
+        const pixelId = CONFIG.contacto.pixelId;
+        if (!pixelId) return;
+
+        const scriptContent = `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '\${pixelId}');
+            fbq('track', 'PageView');
+        `;
+        const scriptEl = document.createElement('script');
+        scriptEl.innerHTML = scriptContent;
+        document.head.appendChild(scriptEl);
+
+        const noscriptEl = document.createElement('noscript');
+        noscriptEl.innerHTML = `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=\${pixelId}&ev=PageView&noscript=1" />`;
+        document.head.appendChild(noscriptEl);
+
+        if (typeof fbq === 'function') {
+            fbq('track', 'ViewContent', {
+                content_name: CONFIG.producto.nombre,
+                content_type: 'product',
+                value: CONFIG.ofertas.opcion1.precio,
+                currency: 'DOP'
+            });
+        }
+    }
 
     function setupFloatingWhatsApp() {
         const waFloatBtn = document.getElementById('wa-float-btn');
